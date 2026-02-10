@@ -3,11 +3,11 @@ import { cleanupExpiredClientsTask } from "@/tasks";
 
 export namespace CronContract {
   /**
-   * Очистка просроченных клиентов (каждые 10 секунд)
+   * Очистка просроченных клиентов (каждый день в 3:00)
    */
   export const CleanupExpiredClientsTask: ITask = {
     name: "CleanupExpiredClientsTask",
-    interval: 10000,
+    schedule: "0 3 * * *", // Каждый день в 3:00 утра
     handler: cleanupExpiredClientsTask,
   };
 }
